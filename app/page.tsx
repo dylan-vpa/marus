@@ -84,7 +84,7 @@ export default function Component() {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-pink-50">
+    <div className="flex flex-col items-center min-h-screen bg-[#fff8e7]">
       {/* Hero Section */}
       <div className="relative w-full h-[60vh] flex items-center justify-center">
         <Image
@@ -97,8 +97,6 @@ export default function Component() {
         />
         <div className="relative text-center text-white space-y-4">
           <h1 className="text-5xl font-serif">Mariana Hernandez</h1>
-          <h2 className="text-4xl font-serif">Mis XV</h2>
-          <p className="text-2xl font-light">10 de Noviembre 2024 - 7:00 PM</p>
         </div>
       </div>
 
@@ -161,7 +159,7 @@ export default function Component() {
               <h3 className="text-xl font-serif text-gray-800 mb-2">La Fiesta</h3>
               <div className="flex items-center justify-center gap-2 text-gray-600">
                 <Clock className="w-4 h-4" />
-                <span>7:00 PM</span>
+                <span>8:00 PM</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-gray-600 mt-2">
                 <MapPin className="w-4 h-4" />
