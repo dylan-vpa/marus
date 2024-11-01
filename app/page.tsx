@@ -127,7 +127,7 @@ export default function Component() {
 
       {/* Music Section */}
       <section className="py-16 px-4 w-full max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Canción de la Fiesta</h2>
+        <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Mi cancion favorita</h2>
         <div className="w-full max-w-xl mx-auto">
           <iframe
             style={{ borderRadius: "12px" }}
@@ -163,7 +163,7 @@ export default function Component() {
               </div>
               <div className="flex items-center justify-center gap-2 text-gray-600 mt-2">
                 <MapPin className="w-4 h-4" />
-                <span>Howard Johnson by Wyndham Barranquilla Versalles</span>
+                <span>Howard Johnson by Wyndham Barranquilla Versalles - Salon Apolo</span>
               </div>
             </CardContent>
           </Card>
@@ -202,7 +202,7 @@ export default function Component() {
               Tu presencia es el mejor regalo. Sin embargo, si deseas obsequiar algo, apreciamos tu contribución en efectivo.
             </p>
             <p className="text-gray-600">
-              Habrá un buzón especial en la recepción para tu sobre.
+              Habrá un buzón especial en el salon Apolo para tu sobre.
             </p>
           </CardContent>
         </Card>
