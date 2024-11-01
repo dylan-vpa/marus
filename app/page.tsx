@@ -88,7 +88,7 @@ export default function Component() {
       {/* Hero Section */}
       <div className="relative w-full h-[60vh] flex items-center justify-center">
         <Image
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80"
+          src="/3.jpeg"
           alt="Forest background"
           className="absolute inset-0 object-cover w-full h-full brightness-50"
           width={1200}
@@ -177,12 +177,9 @@ export default function Component() {
         <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Galería</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {[
-            "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1470816692915-9bd973be14d8?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1464699908537-0954e50791ee?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80"
+            "/1.jpeg",
+            "/2.jpeg",
+            "/4.jpeg",
           ].map((src, i) => (
             <div key={i} className="aspect-square relative overflow-hidden rounded-lg">
               <Image
