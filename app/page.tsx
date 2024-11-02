@@ -10,6 +10,36 @@ import { useToast } from "@/hooks/use-toast"
 import Image from "next/image"
 import { supabase } from "@/lib/supabase"
 
+const DecorativeSection = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
+  <div className={`relative p-8 ${className}`}>
+    <div className="absolute inset-0 bg-[#f9f3e8] rounded-lg">
+      <div className="absolute inset-0 border-2 border-[#d4b995] rounded-lg m-4">
+        <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-[#f9f3e8] px-4 -rotate-90">
+          <Image
+            src="/flower-corner.png"
+            alt="Decorative flower"
+            width={80}
+            height={80}
+            className="opacity-80"
+          />
+        </div>
+        <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-[#f9f3e8] px-4 rotate-90">
+          <Image
+            src="/flower-corner.png"
+            alt="Decorative flower"
+            width={80}
+            height={80}
+            className="opacity-80"
+          />
+        </div>
+      </div>
+    </div>
+    <div className="relative z-10">
+      {children}
+    </div>
+  </div>
+)
+
 export default function Component() {
   const [days, setDays] = useState(0)
   const [hours, setHours] = useState(0)
@@ -26,7 +56,7 @@ export default function Component() {
   })
 
   useEffect(() => {
-    const countDownDate = new Date("Nov 10, 2024 00:00:00").getTime()
+    const countDownDate = new Date("Nov 10, 2024 20:00:00").getTime()
 
     const updateCountdown = () => {
       const now = new Date().getTime()
@@ -84,7 +114,7 @@ export default function Component() {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-[#fff8e7]">
+    <div className="flex flex-col items-center min-h-screen bg-[#f9f3e8]">
       {/* Hero Section */}
       <div className="relative w-full h-[60vh] flex items-center justify-center">
         <Image
@@ -100,186 +130,206 @@ export default function Component() {
         </div>
       </div>
 
+      {/* Quote Section */}
+      <section className="py-16 px-4 w-full max-w-4xl mx-auto">
+        <DecorativeSection>
+          <p className="text-center text-[#8b7355] font-serif text-lg italic">
+            "Hay eventos en la vida que son muy especiales por si solos, pero poder compartirlos con quienes más quiero, los convierte en momentos únicos e inolvidables."
+          </p>
+          <p className="text-center text-[#8b7355] font-serif mt-4">
+            ¡Te esperamos en mi fiesta!
+          </p>
+        </DecorativeSection>
+      </section>
+
       {/* Countdown Section */}
-      <section className="py-12 w-full bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-serif text-pink-600 mb-8">Cuenta Regresiva</h2>
-          <div className="flex justify-center gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-gray-800">{days}</div>
-              <div className="text-gray-600">Días</div>
+      <section className="py-12 w-full">
+        <div className="max-w-4xl mx-auto px-4">
+          <DecorativeSection>
+            <h2 className="text-3xl font-serif text-[#8b7355] text-center mb-8">Cuenta Regresiva</h2>
+            <div className="flex justify-center gap-8">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#8b7355]">{days}</div>
+                <div className="text-[#a69081]">Días</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#8b7355]">{hours}</div>
+                <div className="text-[#a69081]">Horas</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#8b7355]">{minutes}</div>
+                <div className="text-[#a69081]">Minutos</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-[#8b7355]">{seconds}</div>
+                <div className="text-[#a69081]">Segundos</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-gray-800">{hours}</div>
-              <div className="text-gray-600">Horas</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-gray-800">{minutes}</div>
-              <div className="text-gray-600">Minutos</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-gray-800">{seconds}</div>
-              <div className="text-gray-600">Segundos</div>
-            </div>
-          </div>
+            <div className="mt-2 text-center font-bold text-[#8b7355]">10 de Nov - 8:00</div>
+          </DecorativeSection>
         </div>
       </section>
 
       {/* Music Section */}
       <section className="py-16 px-4 w-full max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Mi cancion favorita</h2>
-        <div className="w-full max-w-xl mx-auto">
-          <iframe
-            style={{ borderRadius: "12px" }}
-            src="https://open.spotify.com/embed/track/4U45aEWtQhrm8A5mxPaFZ7?utm_source=generator"
-            width="100%"
-            height="352"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </div>
+          <h2 className="text-3xl font-serif text-[#8b7355] text-center mb-8">Mi canción favorita</h2>
+          <div className="w-full max-w-xl mx-auto">
+            <iframe
+              style={{ borderRadius: "12px" }}
+              src="https://open.spotify.com/embed/track/4U45aEWtQhrm8A5mxPaFZ7?utm_source=generator"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
       </section>
 
       {/* Events Section */}
       <section className="py-16 px-4 w-full max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-1 gap-8">
-          <Card className="overflow-hidden">
-            <div className="relative h-48">
-              <Image
-                src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80"
-                alt="Fiesta venue"
-                width={300}
-                height={200}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <CardContent className="p-6 text-center">
-              <h3 className="text-xl font-serif text-gray-800 mb-2">La Fiesta</h3>
-              <div className="flex items-center justify-center gap-2 text-gray-600">
+        <DecorativeSection>
+          <h2 className="text-3xl font-serif text-[#8b7355] text-center mb-8">¿Cuándo & Dónde?</h2>
+          <div className="relative">
+            <Image
+              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80"
+              alt="Fiesta venue"
+              width={800}
+              height={400}
+              className="object-cover w-full h-48 rounded-lg"
+            />
+            <div className="mt-6 text-center">
+              <h3 className="text-xl font-serif text-[#8b7355] mb-2">La Fiesta</h3>
+              <div className="flex items-center justify-center gap-2 text-[#a69081]">
                 <Clock className="w-4 h-4" />
                 <span>8:00 PM</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-gray-600 mt-2">
+              <div className="flex items-center justify-center gap-2 text-[#a69081] mt-2">
                 <MapPin className="w-4 h-4" />
-                <span>Howard Johnson by Wyndham Barranquilla Versalles - Salon Apolo</span>
+                <span>Howard Johnson by Wyndham Barranquilla Versalles - Salón Apolo</span>
+                <span>Cra. 48 #70-188</span>
               </div>
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </div>
+        </DecorativeSection>
       </section>
 
       {/* Gallery Section */}
       <section className="py-16 px-4 w-full max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Galería</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[
-            "/1.jpeg",
-            "/2.jpeg",
-            "/4.jpeg",
-          ].map((src, i) => (
-            <div key={i} className="aspect-square relative overflow-hidden rounded-lg">
-              <Image
-                src={src}
-                alt={`Gallery image ${i + 1}`}
-                width={300}
-                height={300}
-                className="object-cover w-full h-full hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-          ))}
-        </div>
+          <h2 className="text-3xl font-serif text-[#8b7355] text-center mb-8">Galería</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              "/1.jpeg",
+              "/2.jpeg",
+              "/4.jpeg",
+            ].map((src, i) => (
+              <div key={i} className="aspect-square relative overflow-hidden rounded-lg">
+                <Image
+                  src={src}
+                  alt={`Gallery image ${i + 1}`}
+                  width={300}
+                  height={300}
+                  className="object-cover w-full h-full hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+            ))}
+          </div>
       </section>
 
       {/* Lluvia de Sobres Section */}
       <section className="py-16 px-4 w-full max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Lluvia de Sobres</h2>
-        <Card>
-          <CardContent className="p-6 text-center">
-            <Gift className="w-12 h-12 text-pink-600 mx-auto mb-4" />
-            <p className="text-gray-800 mb-4">
-              Tu presencia es el mejor regalo. Sin embargo, si deseas obsequiar algo, apreciamos tu contribución en efectivo.
+        <DecorativeSection>
+          <h2 className="text-3xl font-serif text-[#8b7355] text-center mb-8">Regalos</h2>
+          <div className="text-center">
+            <Gift className="w-12 h-12 text-[#8b7355] mx-auto mb-4" />
+            <p className="text-[#8b7355] mb-4">
+              ¡Gracias por formar parte de este día!
             </p>
-            <p className="text-gray-600">
-              Habrá un buzón especial en el salon Apolo para tu sobre.
+            <p className="text-[#a69081] italic">
+              "La lluvia de sobres"
             </p>
-          </CardContent>
-        </Card>
+            <p className="text-[#a69081] mt-4">
+              Habrá un buzón especial en el salón Apolo para tu sobre.
+            </p>
+          </div>
+        </DecorativeSection>
       </section>
 
       {/* RSVP Section */}
       <section className="py-16 px-4 w-full max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Confirma tu Asistencia</h2>
-        <Card>
-          <CardContent className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <Input
-                  placeholder="Nombre"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  placeholder="Email"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+        <DecorativeSection>
+          <h2 className="text-3xl font-serif text-[#8b7355] text-center mb-8">Confirma tu Asistencia</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
               <Input
-                placeholder="Número de invitados"
-                type="number"
-                min="1"
-                name="guests"
-                value={formData.guests}
+                placeholder="Nombre"
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
                 required
+                className="border-[#d4c5b9] focus:border-[#8b7355] focus:ring-[#8b7355]"
               />
-              <Textarea
-                placeholder="Mensaje (opcional)"
-                name="message"
-                value={formData.message}
+              <Input
+                placeholder="Email"
+                type="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
+                required
+                className="border-[#d4c5b9] focus:border-[#8b7355] focus:ring-[#8b7355]"
               />
-              <Button
-                className="w-full bg-pink-600 hover:bg-pink-700"
-                type="submit"
-                disabled={loading}
-              >
-                {loading ? "Enviando..." : "Confirmar Asistencia"}
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+            </div>
+            <Input
+              placeholder="Número de invitados"
+              type="number"
+              min="1"
+              name="guests"
+              value={formData.guests}
+              onChange={handleChange}
+              required
+              className="border-[#d4c5b9] focus:border-[#8b7355] focus:ring-[#8b7355]"
+            />
+            <Textarea
+              placeholder="Mensaje (opcional)"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="border-[#d4c5b9] focus:border-[#8b7355] focus:ring-[#8b7355]"
+            />
+            <Button
+              className="w-full bg-[#8b7355] hover:bg-[#a69081] transition-colors"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Enviando..." : "Confirmar Asistencia"}
+            </Button>
+          </form>
+        </DecorativeSection>
       </section>
 
       {/* Map Section */}
       <section className="w-full max-w-4xl mx-auto py-16 px-4">
-        <h2 className="text-3xl font-serif text-pink-600 text-center mb-8">Ubicación</h2>
-        <div className="w-full h-[400px] rounded-lg overflow-hidden">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.5598575983!2d-74.80625692584405!3d10.995679855344416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d736051fdcb%3A0x2597cd02ef4220b5!2sHoward%20Johnson%20by%20Wyndham%20Barranquilla%20Versalles!5e0!3m2!1sen!2sus!4v1698795607605!5m2!1sen!2sus"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+          <h2 className="text-3xl font-serif text-[#8b7355] text-center mb-8">Ubicación</h2>
+          <div className="w-full h-[400px] rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.5598575983!2d-74.80625692584405!3d10.995679855344416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d736051fdcb%3A0x2597cd02ef4220b5!2sHoward%20Johnson%20by%20Wyndham%20Barranquilla%20Versalles!5e0!3m2!1sen!2sus!4v1698795607605!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-gray-600">
+      <footer className="py-8 text-center text-[#8b7355]">
         <div className="flex justify-center items-center gap-2">
-          <Heart className="w-4 h-4 text-pink-600" />
+          <Heart className="w-4 h-4 text-[#8b7355]" />
           <span>Quinceañera de Mariana Hernandez 2024</span>
-          <Heart className="w-4 h-4 text-pink-600" />
+          <Heart className="w-4 h-4 text-[#8b7355]" />
         </div>
       </footer>
     </div>
